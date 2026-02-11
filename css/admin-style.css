@@ -1,0 +1,752 @@
+/* ============================================================
+   ADMIN-STYLE.CSS - UNIQUE LEARN (VERSION FUSIONNÉE ET COMPLÈTE)
+   Intégration CSS depuis: dashboard.php
+   ============================================================ */
+
+:root {
+    --primary-blue: #001F3F;
+    --secondary-blue: #003666;
+    --accent-orange: #FF8C00;
+    --light-orange: #FFA500;
+    --text-dark: #1a1a1a;
+    --text-gray: #666666;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+    --font-primary: 'Poppins', sans-serif;
+    --font-display: 'Playfair Display', serif;
+    --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- HEADER & NAVIGATION --- */
+.header {
+    background: var(--white) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-menu li {
+    position: relative;
+    padding: 15px 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-orange);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+.nav-menu a.active {
+    color: var(--accent-orange);
+}
+
+/* --- ADMIN HEADER (from dashboard.php) --- */
+.admin-header {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.admin-logo-fst {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    letter-spacing: 0.05em;
+}
+
+.admin-logo-settat {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent-orange);
+    letter-spacing: 0.15em;
+}
+
+.admin-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.admin-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-light);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+}
+
+.admin-user i {
+    font-size: 1.2rem;
+    color: var(--accent-orange);
+}
+
+.btn-logout {
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-orange);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-logout:hover {
+    background: var(--light-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+}
+
+/* --- PAGE HEADERS (BANDEAU BLEU) --- */
+.admin-page-header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    padding: 10rem 0 12rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de lumière orange dans le header */
+.admin-page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255, 140, 0, 0.1), transparent);
+}
+
+.admin-page-header h1 {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.admin-page-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- MAIN CONTENT (from dashboard.php) --- */
+.admin-main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 4rem 2rem;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.dashboard-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    font-family: var(--font-display);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.dashboard-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+/* --- CONTENEUR PRINCIPAL (OVERLAP) --- */
+.admin-content {
+    max-width: 1100px;
+    margin: -8rem auto 4rem;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- CARTES ET TABLEAUX --- */
+.form-card, .admin-table-container, .card-dash {
+    background: var(--white);
+    border-radius: 30px;
+    box-shadow: var(--shadow-heavy);
+}
+
+.admin-table-container {
+    padding: 2rem;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 1.2rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+td {
+    padding: 1.5rem 1.2rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* --- DASHBOARD CARDS (from dashboard.php) --- */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Top - Colored Section */
+.card-top {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2.5rem;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-top::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.card-top-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.card-top h2 {
+    font-size: 1.8rem;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.card-top-description {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.card-top-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    opacity: 0.15;
+}
+
+/* Card Bottom - White Section */
+.card-bottom {
+    background: var(--white);
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.card-bottom-text {
+    flex: 1;
+}
+
+.card-bottom-arrow {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-bottom-arrow {
+    transform: translateX(5px);
+}
+
+/* Card Colors */
+.card-orange .card-top {
+    background: linear-gradient(135deg, var(--accent-orange), var(--light-orange));
+}
+
+.card-orange .card-bottom {
+    color: var(--accent-orange);
+    border-top: 3px solid var(--accent-orange);
+}
+
+.card-blue .card-top {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+}
+
+.card-blue .card-bottom {
+    color: var(--primary-blue);
+    border-top: 3px solid var(--primary-blue);
+}
+
+.card-green .card-top {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.card-green .card-bottom {
+    color: #10b981;
+    border-top: 3px solid #10b981;
+}
+
+.card-purple .card-top {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.card-purple .card-bottom {
+    color: #8b5cf6;
+    border-top: 3px solid #8b5cf6;
+}
+
+/* --- FORMULAIRES (DESIGN o.jpg) --- */
+.form-card {
+    padding: 4rem;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.form-header h2 {
+    color: var(--primary-blue);
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-family: var(--font-display);
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+}
+
+.form-group label i {
+    color: var(--accent-orange);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 2px solid #E2E8F0;
+    border-radius: 12px;
+    background: #F8FAFC;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-orange);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(255, 140, 0, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* --- UPLOAD IMAGE --- */
+.image-preview-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.image-preview {
+    width: 100%;
+    height: 250px;
+    border: 2px dashed #E2E8F0;
+    border-radius: 20px;
+    background: #F8FAFC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.image-preview:hover {
+    border-color: var(--accent-orange);
+    background-color: rgba(255, 140, 0, 0.05);
+}
+
+.remove-image-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    z-index: 10;
+}
+
+.image-preview.has-image .remove-image-btn { display: flex; }
+.image-preview.has-image .preview-content { display: none; }
+
+/* --- DASHBOARD LEGACY --- */
+.card-dash {
+    flex: 0 1 420px;
+    height: 300px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.card-dash:hover { transform: translateY(-15px); }
+
+.card-dash-top {
+    flex: 1;
+    padding: 2.5rem;
+    color: var(--white);
+    position: relative;
+}
+
+.card-dash-top h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    z-index: 2;
+    position: relative;
+}
+
+.card-dash-icon {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 3.5rem;
+    opacity: 0.2;
+}
+
+.card-dash-bottom {
+    padding: 1.5rem 2.5rem;
+    background: var(--white);
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.card-orange .card-dash-top {
+    background: linear-gradient(135deg, var(--accent-orange), var(--light-orange));
+}
+
+.card-orange .card-dash-bottom {
+    color: var(--accent-orange);
+}
+
+.card-blue .card-dash-top {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+}
+
+.card-blue .card-dash-bottom {
+    color: var(--primary-blue);
+}
+
+/* --- STYLE DES BOUTONS --- */
+.form-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.btn-admin {
+    padding: 0.7rem 1.8rem;
+    border-radius: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-admin:hover { transform: translateY(-3px); }
+
+.btn-filter, .btn-save, .btn-primary {
+    background-color: var(--accent-orange);
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(255, 140, 0, 0.3);
+    flex: 2;
+}
+
+.btn-new, .btn-add {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 31, 63, 0.2);
+}
+
+.btn-cancel, .btn-outline {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+    flex: 1;
+}
+
+/* Boutons d'action (Editer/Supprimer) */
+.action-btn {
+    padding: 0.7rem;
+    border-radius: 10px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.action-btn:hover { transform: scale(1.1); }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 968px) {
+    .admin-page-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .form-card {
+        padding: 3rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-header {
+        padding: 1rem 1.5rem;
+    }
+
+    .admin-nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .admin-nav-right {
+        gap: 1rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .admin-main {
+        padding: 2rem 1rem;
+    }
+
+    .dashboard-title {
+        font-size: 2.5rem;
+    }
+
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card-top {
+        padding: 2rem;
+    }
+
+    .card-bottom {
+        padding: 1.2rem 2rem;
+    }
+
+    .btn-logout {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .admin-page-header {
+        padding: 8rem 1.5rem 6rem;
+    }
+
+    .admin-content {
+        margin-top: -4rem;
+    }
+
+    .form-card {
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .btn-admin {
+        width: 100%;
+    }
+
+    .card-dash {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-logo-fst {
+        font-size: 1.4rem;
+    }
+
+    .admin-user {
+        display: none;
+    }
+
+    .dashboard-title {
+        font-size: 2rem;
+    }
+
+    .card-top h2 {
+        font-size: 1.4rem;
+    }
+
+    .card-top-description {
+        font-size: 0.9rem;
+    }
+}
+
+
